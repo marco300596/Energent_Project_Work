@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +27,6 @@ public class AcademyController {
 	 * e se in questo modo si può tenere traccia degli eventi che affronta
 	 * quest'ultimo.
 	 */
-	Logger logger=Logger.getLogger(this.getClass());
 	@Autowired
 	private AcademyService academyService;
 	
@@ -147,12 +145,10 @@ public class AcademyController {
 		 */
 		List<Academy> academies = new ArrayList<>();
 		if(mav.getViewName() == "/HomePageAcademy") {	//this part is in case we come from an update page
-			logger.info("hi");
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			mav.setViewName("/academies");
 			if(message.getCode() != "" && message.getCode()!=null) {
 				
-				logger.info("hi" + message.getCode());
 				academies = new ArrayList<>();
 				Academy academy1 = academyService.findAcademybyId(message.getCode(), false);
 				message.setCode("");
@@ -165,7 +161,6 @@ public class AcademyController {
 				return mav;
 			}if(message.getName() != "" && message.getName() != null) {
 				
-				logger.info("hai");
 				academies = academyService.findAcademiesByTitle(message.getName());
 				message.setName(null);
 				if(!academies.isEmpty())
@@ -175,7 +170,6 @@ public class AcademyController {
 				return mav;
 			}if(message.getLocation() != "" && message.getLocation() != null) {
 
-				logger.info("hwi");
 				academies = academyService.findAcademiesByLocation(message.getLocation());
 				message.setLocation(null);
 				if(!academies.isEmpty())
@@ -188,7 +182,6 @@ public class AcademyController {
 			if((message.getEdate()!=null) && (message.getSdate()!=null)) {
 			if((!(message.getEdate().toLocalDate().isBefore(LocalDate.parse("01/01/2022",formatter))&&(!(message.getSdate().toLocalDate().isBefore(LocalDate.parse("01/01/2022",formatter))))))){
 					
-				logger.info("hwia");
 				academies = academyService.findAcademiesByStartAndEndDate(message.getSdate().toLocalDate().format(formatter), message.getEdate().toLocalDate().format(formatter));
 				message.setSdate(null);
 				message.setEdate(null);
@@ -201,7 +194,6 @@ public class AcademyController {
 			}if(message.getEdate()!=null) {
 			if(!(message.getEdate().toLocalDate().format(formatter).equals("01/01/2022"))){
 				
-				logger.info("hwib");
 				academies = academyService.findAcademiesByEndDate(message.getEdate().toLocalDate().format(formatter));
 				message.setEdate(null);
 				if(!academies.isEmpty())
@@ -213,7 +205,6 @@ public class AcademyController {
 			}if(message.getSdate()!=null) {
 			if(!(message.getSdate().toLocalDate().format(formatter).equals("01/01/2022"))){
 				
-				logger.info("hwic");
 				academies = academyService.findAcademiesByStartDate(message.getSdate().toLocalDate().format(formatter));
 				message.setSdate(null);
 				if(!academies.isEmpty())
