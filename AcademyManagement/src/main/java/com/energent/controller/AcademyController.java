@@ -1,9 +1,11 @@
 package com.energent.controller;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +20,6 @@ import com.energent.entity.Student;
 import com.energent.service.AcademyService;
 import com.energent.service.StudentService;
 
-
 @Controller
 public class AcademyController {
 	
@@ -27,6 +28,7 @@ public class AcademyController {
 	 * e se in questo modo si può tenere traccia degli eventi che affronta
 	 * quest'ultimo.
 	 */
+	Logger logger=Logger.getLogger(this.getClass());
 	@Autowired
 	private AcademyService academyService;
 	
@@ -145,12 +147,15 @@ public class AcademyController {
 		 */
 		List<Academy> academies = new ArrayList<>();
 		if(mav.getViewName() == "/HomePageAcademy") {	//this part is in case we come from an update page
+			logger.info("hi");
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			mav.setViewName("/academies");
-			if(message.getCode() != null) {
+			if(message.getCode() != "" && message.getCode()!=null) {
 				
+				logger.info("hi" + message.getCode());
 				academies = new ArrayList<>();
-				Academy academy1 = academyService.findAcademybyId(message.getCode());
+				Academy academy1 = academyService.findAcademybyId(message.getCode(), false);
+				message.setCode("");
 				academies.add(academy1);
 				if(!(academies.get(0) == null)) {
 					mav.addObject("academies",academies);
@@ -158,17 +163,21 @@ public class AcademyController {
 					mav.setViewName("/NoAcademy");
 				}
 				return mav;
-			}if(!(message.getName() != "")) {
+			}if(message.getName() != "" && message.getName() != null) {
 				
+				logger.info("hai");
 				academies = academyService.findAcademiesByTitle(message.getName());
+				message.setName(null);
 				if(!academies.isEmpty())
 					mav.addObject("academies",academies);
 				else 
 					mav.setViewName("/NoAcademy");
 				return mav;
-			}if(!(message.getLocation() != "")) {
-				
+			}if(message.getLocation() != "" && message.getLocation() != null) {
+
+				logger.info("hwi");
 				academies = academyService.findAcademiesByLocation(message.getLocation());
+				message.setLocation(null);
 				if(!academies.isEmpty())
 					mav.addObject("academies",academies);
 				else 
@@ -177,34 +186,41 @@ public class AcademyController {
 				return mav;
 			}
 			if((message.getEdate()!=null) && (message.getSdate()!=null)) {
-			if((!(message.getEdate().toLocalDate().format(formatter).equals("01/01/2000"))&&(!(message.getSdate().toLocalDate().format(formatter).equals("01/01/2000"))))){
+			if((!(message.getEdate().toLocalDate().isBefore(LocalDate.parse("01/01/2022",formatter))&&(!(message.getSdate().toLocalDate().isBefore(LocalDate.parse("01/01/2022",formatter))))))){
 					
-					academies = academyService.findAcademiesByStartAndEndDate(message.getSdate().toLocalDate().format(formatter), message.getEdate().toLocalDate().format(formatter));
-					if(!academies.isEmpty())
-						mav.addObject("academies",academies);
-					else 
-						mav.setViewName("/NoAcademy");
-					return mav;
+				logger.info("hwia");
+				academies = academyService.findAcademiesByStartAndEndDate(message.getSdate().toLocalDate().format(formatter), message.getEdate().toLocalDate().format(formatter));
+				message.setSdate(null);
+				message.setEdate(null);
+				if(!academies.isEmpty())
+					mav.addObject("academies",academies);
+				else 
+					mav.setViewName("/NoAcademy");
+				return mav;
 			}
 			}if(message.getEdate()!=null) {
-			if(!(message.getEdate().toLocalDate().format(formatter).equals("01/01/2000"))){
-					
-					academies = academyService.findAcademiesByEndDate(message.getEdate().toLocalDate().format(formatter));
-					if(!academies.isEmpty())
-						mav.addObject("academies",academies);
-					else 
-						mav.setViewName("/NoAcademy");
-					return mav;
+			if(!(message.getEdate().toLocalDate().format(formatter).equals("01/01/2022"))){
+				
+				logger.info("hwib");
+				academies = academyService.findAcademiesByEndDate(message.getEdate().toLocalDate().format(formatter));
+				message.setEdate(null);
+				if(!academies.isEmpty())
+					mav.addObject("academies",academies);
+				else 
+					mav.setViewName("/NoAcademy");
+				return mav;
 			}
 			}if(message.getSdate()!=null) {
-			if(!(message.getSdate().toLocalDate().format(formatter).equals("01/01/2000"))){
-					
-					academies = academyService.findAcademiesByStartDate(message.getSdate().toLocalDate().format(formatter));
-					if(!academies.isEmpty())
-						mav.addObject("academies",academies);
-					else 
-						mav.setViewName("/NoAcademy");
-					return mav;
+			if(!(message.getSdate().toLocalDate().format(formatter).equals("01/01/2022"))){
+				
+				logger.info("hwic");
+				academies = academyService.findAcademiesByStartDate(message.getSdate().toLocalDate().format(formatter));
+				message.setSdate(null);
+				if(!academies.isEmpty())
+					mav.addObject("academies",academies);
+				else 
+					mav.setViewName("/NoAcademy");
+				return mav;
 			}
 			}else {
 			
@@ -230,7 +246,7 @@ public class AcademyController {
 		 */
 		mav.setViewName("/UpdateAcademy");
 		
-		Academy academy = academyService.findAcademybyId(codeId);
+		Academy academy = academyService.findAcademybyId(codeId, true);
 		mav.addObject("academy", academy);
 		return mav;
 		
@@ -246,7 +262,7 @@ public class AcademyController {
 		if (!academyService.updateAcademy(academy)) // in case the date inserted is not right
 			mav.setViewName("/ErrorAcademy");
 		else {	// in case everything checks out we have to set a new page to land to otherwise we will be stuck in a loop
-			Academy academy1 = academyService.findAcademybyId(academy.getCodeId());
+			Academy academy1 = academyService.findAcademybyId(academy.getCodeId(), false);
 			mav.setViewName("/ConfirmAcademyUpdate");
 			mav.addObject("academy", academy1);
 		}
@@ -260,8 +276,8 @@ public class AcademyController {
 		 * this academy will be shown in its info documented in the page
 		 */
 		mav.setViewName("/ConfirmAcademyDelete");
-		Academy academy = academyService.findAcademybyId(codeId);
-		List<Student> students = studentService.findStudentsByAcademy(academyService.findAcademybyId(codeId));
+		Academy academy = academyService.findAcademybyId(codeId, false);
+		List<Student> students = studentService.findStudentsByAcademy(academyService.findAcademybyId(codeId, false));
 		mav.addObject("academy", academy);
 		mav.addObject("students", students);
 		return mav;
@@ -274,7 +290,7 @@ public class AcademyController {
 		 * this method take a selected academy from the academies page and update it
 		 * this academy will be shown in its info documented in the page
 		 */
-		List<Student> students = studentService.findStudentsByAcademy(academyService.findAcademybyId(codeId));
+		List<Student> students = studentService.findStudentsByAcademy(academyService.findAcademybyId(codeId, false));
 		for(Student student: students)
 			studentService.removeStudent(student.getfCode());
 		if(!academyService.removeAcademy(codeId)) {

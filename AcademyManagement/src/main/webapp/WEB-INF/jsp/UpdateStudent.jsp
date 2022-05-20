@@ -40,15 +40,15 @@
 			</div>
 			<div class="form-group">
 				<label>Firstname:</label>
-				<form:input path="firstname" cssClass="form-control" id="firstname" pattern="[a-zA-Z0-9\s]+"/>
+				<form:input path="firstname" cssClass="form-control" id="firstname" pattern="[a-zA-Z\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a name made of only letters and spaces')"/>
 			</div>
 			<div class="form-group">
 				<label>Lastname</label>
-				<form:input path="lastname" cssClass="form-control" id="lastname" pattern="[a-zA-Z0-9\s]+"/>
+				<form:input path="lastname" cssClass="form-control" id="lastname" pattern="[a-zA-Z\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a lastname made of only letters and spaces')"/>
 			</div>
 			<div class="form-group">
 				<label>Age:</label>
-				<form:input path="age" cssClass="form-control" id="age" pattern="[a-zA-Z0-9\s]+"/>
+				<form:input path="age" cssClass="form-control" id="age" min="18" max="70" pattern="[0-9]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert an age made of only positive numbers ranging from 18 to 70')"/>
 			</div>
 			<button type="submit" class="btn btn-info" data-bs-toggle="button" autocomplete="off" style="display: block; margin: 0 auto; margin-bottom: 10px; width: 200px;">
 			<img src ="/Image/confirmation.png" height="25" width="30" style="margin-right: 10px"/>Update Student</button>

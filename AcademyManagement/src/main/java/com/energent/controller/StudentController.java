@@ -61,8 +61,8 @@ public class StudentController {
 	public ModelAndView showUpdatedStudentList(@PathVariable String codeId) {
 	
 		mav.setViewName("/students");
-		List<Student> students = studentService.findStudentsByAcademy(academyService.findAcademybyId(codeId));
-		Academy academy = academyService.findAcademybyId(codeId);
+		List<Student> students = studentService.findStudentsByAcademy(academyService.findAcademybyId(codeId,false));
+		Academy academy = academyService.findAcademybyId(codeId, false);
 		mav.addObject("academy",academy);
 		mav.addObject("students",students);
 		return mav;
@@ -71,7 +71,7 @@ public class StudentController {
 	@PostMapping("/academies/{codeId}/students/student") /* richiesta su student.jsp*/
 	public ModelAndView addNewStudent(@PathVariable String codeId){
 		
-		Academy academy = academyService.findAcademybyId(codeId);
+		Academy academy = academyService.findAcademybyId(codeId, false);
 		Student student = new Student();
 		student.setAcademy(academy);
 		
@@ -85,7 +85,7 @@ public class StudentController {
 
 	@PostMapping ("/academies/{codeId}/students/update/{fCode}")
 	public ModelAndView showUpdateStudent(@PathVariable String codeId, @PathVariable String fCode) {
-		Academy academy = academyService.findAcademybyId(codeId);
+		Academy academy = academyService.findAcademybyId(codeId, false);
 		Student student = studentService.findStudentById(fCode);
 		student.setAcademy(academy);
 		mav.setViewName("/UpdateStudent");
@@ -97,10 +97,10 @@ public class StudentController {
 	@PostMapping ("/academies/{codeId}/students/update/approved")
 	public ModelAndView ConfirmUpdate(@PathVariable String codeId, @ModelAttribute("student") Student student) {
 		
-		studentService.UpdateStudent(student, academyService.findAcademybyId(codeId));
+		studentService.UpdateStudent(student, academyService.findAcademybyId(codeId, false));
 		mav.setViewName("/ConfirmStudentUpdate");
 		mav.addObject("student", student);
-		mav.addObject("academy", academyService.findAcademybyId(codeId));
+		mav.addObject("academy", academyService.findAcademybyId(codeId, false));
 		return mav;
 	}
 

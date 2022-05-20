@@ -33,19 +33,19 @@
 			<div class="col-sm-10">
 				<label>Fiscal Code (Insert 16 caracters with only uppercase and number)
 				</label>
-				<form:input path="fCode" cssClass="form-control" required="required" id="fCode" pattern="[A-Z0-9]+" maxlength="16" minlength="16"/>
+				<form:input path="fCode" cssClass="form-control" required="required" id="fCode" pattern="[A-Z0-9]+" maxlength="16" minlength="16" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a fiscal code made of only uppercase letters and numbers')"/>
 			</div>
 			<div class="col-sm-10">
 				<label>Firstname</label>
-				<form:input path="firstname" cssClass="form-control" required="required" id="firstname" pattern="[a-zA-Z0-9\s]+"/>
+				<form:input path="firstname" cssClass="form-control" required="required" id="firstname" pattern="[a-zA-Z\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a name made of only letters and spaces')"/>
 			</div>
 			<div class="col-sm-10">
 				<label>Lastname</label>
-				<form:input path="lastname" cssClass="form-control" required="required" id="lastname" pattern="[a-zA-Z0-9\s]+"/>
+				<form:input path="lastname" cssClass="form-control" required="required" id="lastname" pattern="[a-zA-Z\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a lastname made of only letters and spaces')"/>
 			</div>
 			<div class="col-sm-10">
 				<label>Age</label>
-				<form:input path="age" type="number" cssClass="form-control" required="required" id="age" min="18" max="110" pattern="[0-9]*"/>
+				<form:input path="age" type="number" cssClass="form-control" required="required" id="age" min="18" max="70" pattern="[0-9]*" oninvalid="setCustomValidity(this.willValidate?'':'Please insert an age made of only numbers ranging from 18 to 70')"/>
 			</div>
 			<button type="submit" class="btn btn-success" style="margin-top: 10px; margin-left: 15px;">
 			<img src ="/Image/add-user.png" height="25" width="30" style="margin-right: 10px"/>Add New Student</button>

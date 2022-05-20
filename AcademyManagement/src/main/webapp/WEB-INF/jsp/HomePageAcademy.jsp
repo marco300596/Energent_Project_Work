@@ -40,19 +40,19 @@
 			</div>
 			<div class="col-sm-10">
 				<label>Academy Name</label>
-				<form:input path="name" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+				<form:input path="name" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
 			</div>
 			<div class="col-sm-10">
 				<label>Academy Location</label>
-				<form:input path="location" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+				<form:input path="location" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
 			</div>
 			<div class="col-sm-10">
 				<label>Starting date</label>
-				<form:input path="sdate" type="date" value="2000-01-01" cssClass="form-control" id="codeId"/>
+				<form:input path="sdate" type="date" value="2022-01-01" cssClass="form-control" id="codeId"/>
 			</div>
 			<div class="col-sm-10">
 				<label>Ending Date</label>
-				<form:input path="edate" type="date" value="2000-01-01" cssClass="form-control" id="codeId"/>
+				<form:input path="edate" type="date" value="2022-01-01" cssClass="form-control" id="codeId"/>
 			</div>
 			<button type="submit" class="btn btn-success" data-bs-toggle="button" autocomplete="off" style="display: block; margin: 0 auto; margin-top: 10px; width: 210px; margin-left: 15px">
 			<img src ="/Image/ricerca.png" height="15" width="15" style="margin-right: 5px"/>Go to the filtered Academy's list</button>

@@ -16,12 +16,20 @@
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 </head>
 <body background= "/Image/back.jpg">
-	<div class="container" style="margin-bottom: 20px; margin-top: 20px">
-		<table class="table table-striped table-dark">
+	<div class="container" style="margin-bottom: 20px; margin-top: 20px; background-color: #ffffff">
+	<div><p style="visibility: hidden;">.</p></div>
+	<p style="font-size: 30px; margin-top: 20px">List of all the academies</p>
+		<table class="table table-bordered table-dark">
 			<tbody>
 			<form:form modelAttribute="message"></form:form>
 				<!--  items="${products}"<-> session.getAttribute("products") -->
-				
+				<tr>
+				    <th scope="col">Academy's Code</th>
+				    <th scope="col">Academy's Title</th>
+				    <th scope="col">Academy's Location</th>
+				    <th scope="col">Academy's Start Date</th>
+					<th scope="col">Academy's End Date</th>
+				</tr>
 				<c:forEach items="${academies}" var="academy">
 					<tr>
 						<td>${academy.codeId}</td>

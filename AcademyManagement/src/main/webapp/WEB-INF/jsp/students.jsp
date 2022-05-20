@@ -17,10 +17,17 @@
 </head>
 <body>
 	<body background= "/Image/back.jpg">
-	<div class="container" style="margin-bottom: 10px; margin-top: 10px">
+	<div class="container" style="margin-bottom: 10px; margin-top: 10px; background-color: #ffffff">
+	<div><p style="visibility: hidden;">.</p></div>
 		<p class="text-center" style="font-size: 40px;">Academy's Student</p>
-		<table class="table table-striped table-dark">
+		<table class="table table-bordered table-dark">
 			<tbody>
+				<tr>
+				    <th scope="col">Student's Fiscal Code</th>
+				    <th scope="col">Student's FirstName</th>
+				    <th scope="col">Student's LastName</th>
+				    <th scope="col">Student's Age</th>
+				</tr>
 				<c:forEach items="${students}" var="student">
 					<tr>
 					    <td>${student.fCode}</td>

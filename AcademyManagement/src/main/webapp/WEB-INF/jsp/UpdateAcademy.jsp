@@ -43,7 +43,7 @@
 			</div>
 			<div class="form-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px">
 				<label>Academy Title</label>
-				<form:input path="title" cssClass="form-control" id="title" pattern="[a-zA-Z0-9\s]+"/>
+				<form:input path="title" cssClass="form-control" id="title" pattern="[a-zA-Z0-9#@~\s]+"/>
 			</div>
 			<div class="form-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px">
 				<label>Location</label>

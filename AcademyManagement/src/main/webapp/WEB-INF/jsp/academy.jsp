@@ -49,13 +49,13 @@
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Academy Title</label>
-					<form:input path="title" cssClass="form-control" id="title" required="required" pattern="[a-zA-Z0-9\s]+"/>
+					<form:input path="title" cssClass="form-control" id="title" required="required" pattern="[a-zA-Z0-9#@~\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters, numbers, #, @, ~, or spaces')"/>
 				</div>
 			</div>
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Location</label>
-					<form:input path="location" cssClass="form-control" id="location" required="required" pattern="[a-zA-Z0-9\s]+"/>
+					<form:input path="location" cssClass="form-control" id="location" required="required" pattern="[a-zA-Z0-9\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a location made of only letters and spaces')"/>
 				</div>
 			</div>
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">

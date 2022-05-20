@@ -9,7 +9,7 @@
 <head>
 <jsp:include page="Header.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Academies List</title>
+<title>Report List</title>
 <link href="../../webjars/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" />
 <script src="../../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -17,12 +17,20 @@
 </head>
 <body background= "/Image/back.jpg">
 	<div class="container text-center" style="margin-bottom: 20px; margin-top: 20px; background-color: #ffffff;">
-	<p style="font-size: 30px">this is the report of all academies</p>
-		<table class="table table-striped table-dark">
+	<div><p style="visibility: hidden;">.</p></div>
+	<p style="font-size: 30px;">this is the report of all academies</p>
+		<table class="table table-bordered table-dark">
 			<tbody>
 			<form:form modelAttribute="message"></form:form>
 				<!--  items="${products}"<-> session.getAttribute("products") -->
-				
+				<tr>
+				    <th scope="col">Academy's Code</th>
+				    <th scope="col">Academy's Title</th>
+				    <th scope="col">Academy's Location</th>
+				    <th scope="col">Academy's Start Date</th>
+					<th scope="col">Academy's End Date</th>
+				</tr>
+					
 				<c:forEach items="${academies}" var="academy">
 					<tr>
 						<td>${academy.codeId}</td>
@@ -36,9 +44,15 @@
 			</tbody>
 		</table>
 				<!--  items="${products}"<-> session.getAttribute("products") -->
-		<p style= "font-size: 30px">this is the report of all the students in them</p>
-		<table class="table table-striped table-dark">
+		<p style= "font-size: 30px; margin-top: 25px">this is the report of all the students in them</p>
+		<table class="table table-bordered table-dark">
 			<tbody>
+				<tr>
+				    <th scope="col">Student's Fiscal Code</th>
+				    <th scope="col">Student's FirstName</th>
+				    <th scope="col">Student's LastName</th>
+				    <th scope="col">Student's Age</th>
+				</tr>
 				<c:forEach items="${students}" var="student">
 					<tr>
 						<td>${student.fCode}</td>
@@ -52,7 +66,7 @@
 		</table>
 			<spring:url value="/home" var="academiesURL" />
 			<form:form method="get" action="${academiesURL}">
-				<button type="submit" class="btn btn-success" data-bs-toggle="button" autocomplete="off" type="button" style="flex: 1; width: 200px; display: inline-block;  margin-bottom: 50px">
+				<button type="submit" class="btn btn-success" data-bs-toggle="button" autocomplete="off" type="button" style="flex: 1; width: 200px; display: inline-block; margin-top: 10px; margin-bottom: 20px">
 				<img src ="/Image/home.png" height="25" width="30" style="margin-right: 10px"/>Return To HomePage</button>
 			</form:form>
 	</div>

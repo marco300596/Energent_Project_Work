@@ -1,6 +1,5 @@
 package com.energent.service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import com.energent.entity.Academy;
@@ -8,7 +7,7 @@ import com.energent.entity.Academy;
 
 public interface AcademyService {
 
-	public Academy findAcademybyId(String codeId);
+	public Academy findAcademybyId(String codeId, boolean flag);
 	public int addAcademy(Academy academy);
 	public boolean updateAcademy(Academy academy);
 	public boolean removeAcademy(String codeId);
