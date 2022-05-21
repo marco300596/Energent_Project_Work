@@ -9,7 +9,7 @@
 <head>
 <jsp:include page="Header.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Remove Academy</title>
+<title>Remove Academy Form</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="../../webjars/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" />
@@ -19,7 +19,8 @@
 <body background= "/Image/back.jpg">
 	<div class="container" style= "margin-top: 10px">
 	<div class="form-group row">
-	<div class="container" style="float: left; margin-bottom: 20px; width: 40%; background-color: #ffffff">
+	<div class="container" style="float: left; margin-bottom: 20px; width: 40%; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto">
 		<spring:url value="/academies/${academy.codeId}/remove/confirm" var="removeURL" />
 		<!--ModelAttribute=n collegamento tra model e view     -->
 		<form:form modelAttribute="academy" method="post" action="${removeURL}"
@@ -28,24 +29,24 @@
 		<p class="text-center" style="font-size: 25px; margin-top: 20px">Remove the following Academy</p>
 		<div class="form-group">
 				<label>Academy Code</label>
-				<form:input path="codeId" cssClass="form-control" id="codeId" readonly="true"/>
+				<form:input path="codeId" style="background-color: transparent; color:white;" cssClass="form-control" id="codeId" readonly="true"/>
 			</div>
 			<div class="form-group">
 				<label>Academy Title</label>
-				<form:input path="title" cssClass="form-control" id="title" readonly="true"/>
+				<form:input path="title" style="background-color: transparent; color:white;" cssClass="form-control" id="title" readonly="true"/>
 			</div>
 			<div class="form-group">
 				<label>Location</label>
-				<form:input path="location" cssClass="form-control" id="location" readonly="true"/>
+				<form:input path="location" style="background-color: transparent; color:white;" cssClass="form-control" id="location" readonly="true"/>
 			</div>
 			<div class="form-group">
 			<label>Starting Date</label>
 	            <div class="form-group">
 	                <div class="input-group date" id="datepicker1">
-	                    <form:input path="startDate" type="text" class="form-control" id="startDate" readonly="true"/>
+	                    <form:input path="startDate" style="background-color: transparent; color:white;" type="text" class="form-control" id="startDate" readonly="true"/>
 	                    <span class="input-group-append">
-	                        <span class="input-group-text bg-white d-block">
-	                            <i class="fa fa-calendar"></i>
+	                        <span class="input-group-text bg-transparent d-block">
+	                        	<i class="fa fa-calendar" style="color: white"></i>
 	                        </span>
 	                    </span>
 	                </div>
@@ -55,10 +56,10 @@
 			<label>Ending Date</label>
                 <div class="form-group">
                     <div class="input-group date" id="datepicker2">
-                        <form:input path="endDate" type="text" class="form-control" id="endDate" readonly="true"/>
+                        <form:input path="endDate" style="background-color: transparent; color:white;" type="text" class="form-control" id="endDate" readonly="true"/>
                         <span class="input-group-append">
-                            <span class="input-group-text bg-white d-block">
-                                <i class="fa fa-calendar"></i>
+                            <span class="input-group-text bg-transparent d-block">
+	                        	<i class="fa fa-calendar" style="color: white"></i>
                             </span>
                         </span>
                     </div>

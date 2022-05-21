@@ -17,7 +17,8 @@
 <title>Academy's HomePage</title>
 </head>
 <body background= "/Image/back.jpg">
-	<div class="btn-group-vertical-center gap-2 col-6 mx-auto"  style="margin-bottom: 50px; margin-top: 10px; background-color: #ffffff">
+	<div class="btn-group-vertical-center gap-2 col-6 mx-auto"  style="margin-bottom: 50px; margin-top: 10px; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto;">
 		<spring:url value="/academy" var="AcademyURL" />
 		<p class="text-center" style="font-size: 40px">What would you like to do?</p>
 		<form:form modelAttribute="academy" method="post" action="${AcademyURL}">
@@ -32,27 +33,30 @@
 		<p/>
 		<div class="input-group">
 		<spring:url value="/academies" var="AcademiesURL" />
-		<form:form modelAttribute="message" style="background-color: #ffffff" method="post" action="${AcademiesURL}"
+		<form:form modelAttribute="message" method="post" action="${AcademiesURL}"
 			cssClass="form">
-		  	<div class="col-sm-10">
+			<div class="col-sm-10" style="margin-top: 10px; font-size: 20px">
+			<label>Filtered Search</label>
+			</div>
+		  	<div class="col-sm-10" style="margin-top: 10px;">
 				<label>Academy Code</label>
-				<form:input path="code" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+				<form:input path="code" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" style="background-color: transparent; color:white;" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
 			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-10" style="margin-top: 10px">
 				<label>Academy Name</label>
-				<form:input path="name" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+				<form:input path="name" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9\s]+" style="background-color: transparent; color:white;" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
 			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-10" style="margin-top: 10px">
 				<label>Academy Location</label>
-				<form:input path="location" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+				<form:input path="location" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9\s]+" style="background-color: transparent; color:white;" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
 			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-10" style="margin-top: 10px">
 				<label>Starting date</label>
-				<form:input path="sdate" type="date" value="2022-01-01" cssClass="form-control" id="codeId"/>
+				<form:input path="sdate" type="date" value="2022-01-01" style="background-color: transparent; color:white;" cssClass="form-control" id="codeId"/>
 			</div>
-			<div class="col-sm-10">
+			<div class="col-sm-10" style="margin-top: 10px">
 				<label>Ending Date</label>
-				<form:input path="edate" type="date" value="2022-01-01" cssClass="form-control" id="codeId"/>
+				<form:input path="edate" type="date" value="2022-01-01" style="background-color: transparent; color:white;" cssClass="form-control" id="codeId"/>
 			</div>
 			<button type="submit" class="btn btn-success" data-bs-toggle="button" autocomplete="off" style="display: block; margin: 0 auto; margin-top: 10px; width: 210px; margin-left: 15px">
 			<img src ="/Image/ricerca.png" height="15" width="15" style="margin-right: 5px"/>Go to the filtered Academy's list</button>

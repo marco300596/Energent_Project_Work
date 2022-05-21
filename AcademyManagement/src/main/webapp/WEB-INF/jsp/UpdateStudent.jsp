@@ -26,7 +26,8 @@
 	<body background= "/Image/back.jpg">
 	<div class="container" style="margin-bottom: 10px; margin-top: 10px">
 	<div class="form-group row">
-	<div class="container" style="float: left; width: 40%; background-color: #ffffff;">
+	<div class="container" style="float: left; width: 40%; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto">
 		<!--ModelAttribute=n collegamento tra model e view     -->
 		<spring:url value="/academies/${academy.codeId}/students/update/approved" var="updateURL" />
 		<spring:url value="/academies/${academy.codeId}/students" var="studentsURL" />
@@ -36,19 +37,19 @@
 			cssClass="form">
 			<div class="form-group">
 				<label>Fiscal Code:</label>
-				<form:input path="fCode" cssClass="form-control" id="firstname" readonly="true"/>
+				<form:input path="fCode" style="background-color: transparent; color:white;" cssClass="form-control" id="firstname" readonly="true"/>
 			</div>
 			<div class="form-group">
 				<label>Firstname:</label>
-				<form:input path="firstname" cssClass="form-control" id="firstname" pattern="[a-zA-Z\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a name made of only letters and spaces')"/>
+				<form:input path="firstname" style="background-color: transparent; color:white;" cssClass="form-control" id="firstname" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a name made of only letters and spaces')"/>
 			</div>
 			<div class="form-group">
 				<label>Lastname</label>
-				<form:input path="lastname" cssClass="form-control" id="lastname" pattern="[a-zA-Z\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a lastname made of only letters and spaces')"/>
+				<form:input path="lastname" style="background-color: transparent; color:white;" cssClass="form-control" id="lastname" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a lastname made of only letters and spaces')"/>
 			</div>
 			<div class="form-group">
 				<label>Age:</label>
-				<form:input path="age" cssClass="form-control" id="age" min="18" max="70" pattern="[0-9]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert an age made of only positive numbers ranging from 18 to 70')"/>
+				<form:input path="age" style="background-color: transparent; color:white;" cssClass="form-control" id="age" min="18" max="70" pattern="[0-9]+" oninvalid="alert('Please insert an age made of only positive numbers ranging from 18 to 70')"/>
 			</div>
 			<button type="submit" class="btn btn-info" data-bs-toggle="button" autocomplete="off" style="display: block; margin: 0 auto; margin-bottom: 10px; width: 200px;">
 			<img src ="/Image/confirmation.png" height="25" width="30" style="margin-right: 10px"/>Update Student</button>

@@ -16,7 +16,8 @@
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 </head>
 <body background= "/Image/back.jpg">
-	<div class="container text-center" style="margin-bottom: 20px; margin-top: 20px; background-color: #ffffff;">
+	<div class="container text-center" style="margin-bottom: 20px; margin-top: 20px; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto;">
 	<div><p style="visibility: hidden;">.</p></div>
 	<p style="font-size: 30px;">this is the report of all academies</p>
 		<table class="table table-bordered table-dark">

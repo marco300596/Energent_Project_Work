@@ -14,28 +14,29 @@
 <script src="../../webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 <meta charset="UTF-8">
-<title>Confirm Student Added</title>
+<title>Confirm Student Added Form</title>
 </head>
 <body background= "/Image/back.jpg">
-	<div class="btn-group-vertical-center gap-2 col-6 mx-auto" style="margin-bottom: 10px; margin-top: 10px; background-color: #ffffff">
+	<div class="btn-group-vertical-center gap-2 col-6 mx-auto" style="margin-bottom: 10px; margin-top: 10px; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto">
 	<spring:url value="/academies/${codeId}/students/add/${student.fCode}" var="StudentsURL" />
 	<form:form modelAttribute="student" method="post" action="${StudentsURL}" cssClass="form">
 		<p class="text-center" style="font-size: 50px">This is the student's detail you provided:</p>
 		<div class="form-group">
 			<label>Student Fiscal Code</label>
-			<form:input path="fCode" cssClass="form-control" id="fCode" readonly="true"/>
+			<form:input path="fCode" style="background-color: transparent; color:white;" cssClass="form-control" id="fCode" readonly="true"/>
 		</div>
 		<div class="form-group">
 			<label>Student First Name</label>
-			<form:input path="firstname" cssClass="form-control" id="firstname" readonly="true"/>
+			<form:input path="firstname" style="background-color: transparent; color:white;" cssClass="form-control" id="firstname" readonly="true"/>
 		</div>
 		<div class="form-group">
 			<label>Student Last Name</label>
-			<form:input path="lastname" cssClass="form-control" id="lastname" readonly="true"/>
+			<form:input path="lastname" style="background-color: transparent; color:white;" cssClass="form-control" id="lastname" readonly="true"/>
 		</div>
 		<div class="form-group">
 			<label>Student Age</label>
-			<form:input path="age" cssClass="form-control" id="age" readonly="true"/>
+			<form:input path="age" style="background-color: transparent; color:white;" cssClass="form-control" id="age" readonly="true"/>
 		</div>
 		<button type="submit" class="btn btn-success" data-bs-toggle="button" autocomplete="off" type="button" style="display: block; margin: 0 auto; margin-bottom: 10px; width: 200px;">
 			<img src ="/Image/add-user.png" height="25" width="30" style="margin-right: 10px"/>Add Student & Go To Student's List</button>

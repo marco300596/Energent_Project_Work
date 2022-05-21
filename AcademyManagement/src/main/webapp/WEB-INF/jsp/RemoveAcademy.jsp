@@ -22,7 +22,8 @@
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 </head>
 <body background= "/Image/back.jpg">
-<div class="btn-group-vertical-center gap-2 col-6 mx-auto" style="margin-bottom: 10px; margin-top: 10px; background-color: #ffffff">
+<div class="btn-group-vertical-center gap-2 col-6 mx-auto" style="margin-bottom: 10px; margin-top: 10px; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto">
 	<spring:url value="/academies" var="AccademiesURL" />
 		<p class="text-center" style="font-size: 50px">The selected academy was succesfully removed.</p>
 		<p class="text-center" style="font-size: 50px">Return to academies's list </p>

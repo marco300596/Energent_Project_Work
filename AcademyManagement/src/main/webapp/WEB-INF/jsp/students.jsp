@@ -17,9 +17,13 @@
 </head>
 <body>
 	<body background= "/Image/back.jpg">
-	<div class="container" style="margin-bottom: 10px; margin-top: 10px; background-color: #ffffff">
+	<div class="container" style="margin-bottom: 10px; margin-top: 10px; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto">
 	<div><p style="visibility: hidden;">.</p></div>
-		<p class="text-center" style="font-size: 40px;">Academy's Student</p>
+		<form:form modelAttribute="academy">
+		<p class="text-center" style="font-size: 40px;">${academy.title}'s Students:</p>
+		<p style="font-size: 20px;">from: ${academy.startDate} - to: ${academy.endDate}; in: ${academy.location}</p>
+		</form:form>
 		<table class="table table-bordered table-dark">
 			<tbody>
 				<tr>
@@ -52,7 +56,6 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		
 		<spring:url value="/academies/${academy.codeId}/students/student" var="addStudentURL" /> 
 		<form:form method ="post" action="${addStudentURL}">
 			<button type="submit" class="btn btn-success" role="button" style="margin-bottom: 50px;">

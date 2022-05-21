@@ -45,13 +45,20 @@ public class AcademyController {
 	
 	@GetMapping("/reportHP")
 	public ModelAndView showReportHP() {
+		/*
+		 * this method is in charge of calling the report HP
+		 */
 		mav.setViewName("/HomePageReport");
 		return mav;
 	}
 	
 	@GetMapping("/totalReport")
 	public ModelAndView showTotalReport() {
-		
+		/*
+		 * this method is in charge of calling the page
+		 * with the table off all the academies and all
+		 * the students in the database
+		 */
 		mav.setViewName("/AcademiesReport");
 		List<Academy> academiesList = new ArrayList<>();
 		List<Student> studentList = new ArrayList<>();
@@ -71,7 +78,11 @@ public class AcademyController {
 	
 	@GetMapping("/annualReport")
 	public ModelAndView showAnnualReport() {
-		
+		/*
+		 * this method is in charge of calling the page
+		 * with the table off all the academies in the 
+		 * last year and all the students in the database
+		 */
 		mav.setViewName("/AcademiesReport");
 		List<Academy> academiesList = new ArrayList<>();
 		List<Student> studentList = new ArrayList<>();
@@ -91,7 +102,11 @@ public class AcademyController {
 	}
 	@PostMapping("/academiesHP")
 	public ModelAndView showAcademyHomePage() {
-		
+		/*
+		 * this method is in charge of calling the academy
+		 * HP and to prepare an empty academy and message
+		 * for it
+		 */
 		mav.setViewName("/HomePageAcademy");
 		Academy academy = new Academy();
 		
@@ -103,7 +118,10 @@ public class AcademyController {
 	
 	@PostMapping("/academy")
 	public ModelAndView addAcademy(@ModelAttribute ("academy") Academy academy) {
-		
+		/*
+		 * this method is in charge of calling the form page
+		 * to fill an academy
+		 */
 		mav.setViewName("/academy");
 		mav.addObject("academy", academy);
 		return mav;
@@ -111,7 +129,10 @@ public class AcademyController {
 	
 	@PostMapping("/AcademyConfirm")
 	public ModelAndView showConfirmAcademyAdded(@ModelAttribute ("academy") Academy academy) {
-		
+		/*
+		 * this method is in charge of letting the 
+		 * user know how the academy it's been filled
+		 */
 		mav.setViewName("/ConfirmAcademyAdded");
 		mav.addObject("academy", academy);
 		return mav;
@@ -119,7 +140,10 @@ public class AcademyController {
 	
 	@PostMapping("/confirm/{codeId}")
 	public ModelAndView resultAddedAcademy(@PathVariable String codeId, @ModelAttribute("academy") Academy academy) {
-		
+		/*
+		 * this method is in charge of check if everything is inserted correctly
+		 * and to call the page and method that is in charge of the system's response.
+		 */
 		int res = academyService.addAcademy(academy);
 		if (res == 2){// in case the date inserted is not right
 			
@@ -139,14 +163,14 @@ public class AcademyController {
 	@PostMapping("/academies")
 	public ModelAndView showAcademies(@ModelAttribute("message")Message message) {
 		/*
-		 * this method is in charge of check if everything is inserted correctly
-		 * and to call the page and method that is in charge with the 
-		 * system's response.
+		 * this method is in charge of checking the request page from which came the request
+		 * and if the request came from the HP see for a requested filter.
 		 */
 		List<Academy> academies = new ArrayList<>();
 		if(mav.getViewName() == "/HomePageAcademy") {	//this part is in case we come from an update page
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			mav.setViewName("/academies");
+			//filtering by a message bean in its attribute (this is a mirror of the academy class)
 			if(message.getCode() != "" && message.getCode()!=null) {
 				
 				academies = new ArrayList<>();
@@ -180,7 +204,7 @@ public class AcademyController {
 				return mav;
 			}
 			if((message.getEdate()!=null) && (message.getSdate()!=null)) {
-			if((!(message.getEdate().toLocalDate().isBefore(LocalDate.parse("01/01/2022",formatter))&&(!(message.getSdate().toLocalDate().isBefore(LocalDate.parse("01/01/2022",formatter))))))){
+			
 					
 				academies = academyService.findAcademiesByStartAndEndDate(message.getSdate().toLocalDate().format(formatter), message.getEdate().toLocalDate().format(formatter));
 				message.setSdate(null);
@@ -190,9 +214,7 @@ public class AcademyController {
 				else 
 					mav.setViewName("/NoAcademy");
 				return mav;
-			}
 			}if(message.getEdate()!=null) {
-			if(!(message.getEdate().toLocalDate().format(formatter).equals("01/01/2022"))){
 				
 				academies = academyService.findAcademiesByEndDate(message.getEdate().toLocalDate().format(formatter));
 				message.setEdate(null);
@@ -201,9 +223,7 @@ public class AcademyController {
 				else 
 					mav.setViewName("/NoAcademy");
 				return mav;
-			}
 			}if(message.getSdate()!=null) {
-			if(!(message.getSdate().toLocalDate().format(formatter).equals("01/01/2022"))){
 				
 				academies = academyService.findAcademiesByStartDate(message.getSdate().toLocalDate().format(formatter));
 				message.setSdate(null);
@@ -212,19 +232,20 @@ public class AcademyController {
 				else 
 					mav.setViewName("/NoAcademy");
 				return mav;
-			}
 			}else {
+			//if the message is empty is a full research
 			
 				academies = academyService.findAcademiesForTable();
 				mav.addObject("academies",academies);
 				return mav;
 			}
 		}else {
+		//if the request came from a page different from HP is a full research
 			
-		mav.setViewName("/academies");
-		mav.addObject("message", new Message());
-		academies = academyService.findAcademiesForTable();
-		mav.addObject("academies",academies);
+			mav.setViewName("/academies");
+			mav.addObject("message", new Message());
+			academies = academyService.findAcademiesForTable();
+			mav.addObject("academies",academies);
 		}
 		return mav;
 }

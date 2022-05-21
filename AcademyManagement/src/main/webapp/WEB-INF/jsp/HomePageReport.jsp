@@ -18,7 +18,8 @@
 <title>HomePage Report</title>
 </head>
 <body background= "/Image/back.jpg">
-	<div class="btn-group-vertical-center gap-2 col-6 mx-auto"  style="margin-bottom: 10px; margin-top: 10px; background-color: #ffffff">
+	<div class="btn-group-vertical-center gap-2 col-6 mx-auto"  style="margin-bottom: 10px; margin-top: 10px; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto;">
 		<p class="text-center" style="font-size: 40px">Select what Report to See</p>
 		<div class="text-center">
 		<div class="btn-group text-center">

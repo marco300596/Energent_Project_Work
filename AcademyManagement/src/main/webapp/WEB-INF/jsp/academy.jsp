@@ -26,7 +26,8 @@
 	<div class="container" style="margin-bottom: 10px; margin-top: 10px;">
 	<!--  -->
 	<div class="form-group row">
-	<div class="container" style="float: left; width: 40%; background-color: #ffffff">
+	<div class="container" style="float: left; width: 40%; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto;">
 	<!--  -->
 		<spring:url value="/AcademyConfirm" var="addURL" />
 		<!--ModelAttribute=n collegamento tra model e view     -->
@@ -43,19 +44,19 @@
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Academy Code</label>
-					<form:input path="codeId" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+					<form:input path="codeId" style="background-color: transparent; color:white;" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
 				</div>
 			</div>
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Academy Title</label>
-					<form:input path="title" cssClass="form-control" id="title" required="required" pattern="[a-zA-Z0-9#@~\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters, numbers, #, @, ~, or spaces')"/>
+					<form:input path="title" style="background-color: transparent; color:white;" cssClass="form-control" id="title" required="required" pattern="[a-zA-Z0-9#@~\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters, numbers, #, @, ~, or spaces')"/>
 				</div>
 			</div>
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Location</label>
-					<form:input path="location" cssClass="form-control" id="location" required="required" pattern="[a-zA-Z0-9\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a location made of only letters and spaces')"/>
+					<form:input path="location" style="background-color: transparent; color:white;" cssClass="form-control" id="location" required="required" pattern="[a-zA-Z0-9\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a location made of only letters and spaces')"/>
 				</div>
 			</div>
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
@@ -64,10 +65,10 @@
 	            <div class="form-row align-items-center">
 					<div class="col-sm-10">
 					    <div class="input-group date" id="datepicker1">
-		                    <form:input path="startDate" type="text" class="form-control" id="startDate" required="required"/>
+		                    <form:input path="startDate" style="background-color: transparent; color:white;" type="text" class="form-control" id="startDate" required="required"/>
 		                    <span class="input-group-append">
-		                        <span class="input-group-text bg-white d-block">
-		                            <i class="fa fa-calendar"></i>
+		                        <span class="input-group-text bg-transparent d-block">
+		                            <i class="fa fa-calendar" style="color: white"></i>
 		                        </span>
 		                    </span>
 		                </div>
@@ -81,10 +82,10 @@
 	            <div class="form-row align-items-center">
 					<div class="col-sm-10">
 				    	<div class="input-group date" id="datepicker2">
-	                        <form:input path="endDate" type="text" class="form-control" id="endDate" required="required" />
+	                        <form:input path="endDate" style="background-color: transparent; color:white;" type="text" class="form-control" id="endDate" required="required" />
 	                        <span class="input-group-append">
-	                            <span class="input-group-text bg-white d-block">
-	                                <i class="fa fa-calendar"></i>
+	                            <span class="input-group-text bg-transparent d-block">
+	                                <i class="fa fa-calendar" style="color: white"></i>
 	                            </span>
 	                        </span>
 	                    </div>

@@ -19,31 +19,32 @@
 <body background= "/Image/back.jpg">
 	<div class="container" style="margin-bottom: 10px; margin-top: 10px">
 	<div class="form-group row">
-	<div class="container" style="float: left; width: 40%">
+	<div class="container" style="float: left; width: 40%; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto; margin-bottom: 50px;">
 	<spring:url value="/academies" var="AcademiesURL" />
-	<form:form modelAttribute="academy" method="post" style = "background-color: #ffffff" action="${AcademiesURL}" cssClass="form">
+	<form:form modelAttribute="academy" method="post" action="${AcademiesURL}" cssClass="form">
 		<p/>
-		<p class="text-center" style="font-size: 30px;">The academy selected is now updated:</p>
+		<p class="text-center" style="font-size: 30px;">The academy selected is now updated with the following data:</p>
 		<div class="form-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px">
 			<label>Academy Code</label>
-			<form:input path="codeId" cssClass="form-control" id="codeId" readonly="true"/>
+			<form:input path="codeId" style="background-color: transparent; color:white;" cssClass="form-control" id="codeId" readonly="true"/>
 		</div>
 		<div class="form-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px">
 			<label>Academy Title</label>
-			<form:input path="title" cssClass="form-control" id="title" readonly="true"/>
+			<form:input path="title" style="background-color: transparent; color:white;" cssClass="form-control" id="title" readonly="true"/>
 		</div>
 		<div class="form-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px">
 			<label>Location</label>
-			<form:input path="location" cssClass="form-control" id="location" readonly="true"/>
+			<form:input path="location" style="background-color: transparent; color:white;" cssClass="form-control" id="location" readonly="true"/>
 		</div>
 		<div class="form-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px">
 		<label>Starting Date</label>
             <div class="form-group">
                 <div class="input-group date" id="datepicker1">
-                    <form:input path="startDate" type="text" class="form-control" id="startDate" readonly="true"/>
+                    <form:input path="startDate" style="background-color: transparent; color:white;" type="text" class="form-control" id="startDate" readonly="true"/>
                     <span class="input-group-append">
-                        <span class="input-group-text bg-white d-block">
-                            <i class="fa fa-calendar"></i>
+                        <span class="input-group-text bg-transparent d-block">
+	                    	<i class="fa fa-calendar" style="color: white"></i>
                         </span>
                     </span>
                 </div>
@@ -53,11 +54,11 @@
 		<label>Ending Date</label>
                <div class="form-group">
                    <div class="input-group date" id="datepicker2">
-                       <form:input path="endDate" type="text" class="form-control" id="endDate" readonly="true"/>
+                       <form:input path="endDate" style="background-color: transparent; color:white;" type="text" class="form-control" id="endDate" readonly="true"/>
                        <span class="input-group-append">
-                           <span class="input-group-text bg-white d-block">
-                               <i class="fa fa-calendar"></i>
-                           </span>
+ 					   		<span class="input-group-text bg-transparent d-block">
+	                        	<i class="fa fa-calendar" style="color: white"></i>
+                           	</span>
                        </span>
                    </div>
                </div>

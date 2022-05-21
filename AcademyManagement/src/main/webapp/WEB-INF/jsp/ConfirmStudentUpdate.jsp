@@ -25,7 +25,8 @@
 	<body background= "/Image/back.jpg">
 	<div class="container" style="margin-bottom: 10px; margin-top: 10px">
 	<div class="form-group row">
-	<div class="container" style="float: left; width: 40%; background-color: #ffffff;">
+	<div class="container" style="float: left; width: 40%; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto">
 		<spring:url value="/academies/${academy.codeId}/students" var="okURL" />
 		<!--ModelAttribute=n collegamento tra model e view     -->
 		<form:form modelAttribute="student" method="post" action="${okURL}"
@@ -33,19 +34,19 @@
 			<p class="text-center" style="font-size: 40px;">The Selected Student is now updated with the following data:</p>
 			<div class="form-group">
 				<label>Fiscal Code</label>
-				<form:input path="fCode" cssClass="form-control" id="fCode" readonly="true"/>
+				<form:input path="fCode" style="background-color: transparent; color:white;" cssClass="form-control" id="fCode" readonly="true"/>
 			</div>
 			<div class="form-group">
 				<label>Firstname</label>
-				<form:input path="firstname" cssClass="form-control" id="firstname" readonly="true"/>
+				<form:input path="firstname" style="background-color: transparent; color:white;" cssClass="form-control" id="firstname" readonly="true"/>
 			</div>
 			<div class="form-group">
 				<label>Lastname</label>
-				<form:input path="lastname" cssClass="form-control" id="lastname" readonly="true"/>
+				<form:input path="lastname" style="background-color: transparent; color:white;" cssClass="form-control" id="lastname" readonly="true"/>
 			</div>
 			<div class="form-group">
 				<label>Age</label>
-				<form:input path="age" cssClass="form-control" id="age" readonly="true"/>
+				<form:input path="age" style="background-color: transparent; color:white;" cssClass="form-control" id="age" readonly="true"/>
 			</div>
 			<div class="form-group">
 				<form:form modelAttribute="academy" method="post" action="${okURL}"	cssClass="form">

@@ -19,7 +19,10 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Override
 	public boolean addStudent(Student student, String id) {
-		
+		/*
+		 * this method is used to insert a student in the database, this initially check if the
+		 * student already exist by check-by-PK, if everithing chacks out it will add the student.
+		 */
 		boolean result = false;
 		Academy academy = academyRepository.findById(id).get();
 		if (!studentRepository.existsById(student.getfCode())) {
@@ -31,30 +34,33 @@ public class StudentServiceImpl implements StudentService {
 		return result;
 	}
 	
-	public void UpdateStudent(Student student, Academy academy) {
-	
-	/*
-	 * studentToUpdate.setfCode(student.getfCode());
-	 * studentToUpdate.setFirstname(student.getFirstname());
-	 * studentToUpdate.setLastname(student.getLastname());
-	 * studentToUpdate.setAge(student.getAge());
-	 */
-	student.setAcademy(academy);
-	studentRepository.save(student);
+	public boolean UpdateStudent(Student student, Academy academy) {
+		/*
+		 * this method is in charge of updating a student, and chacks if the inserted student
+		 * is in the system as it should
+		 */
+		student.setAcademy(academy);
+		studentRepository.save(student);
+		return (student.equals(findStudentById(student.getfCode())));
   
 	
 }
 	
 	@Override
 	public boolean removeStudent(String fCode) {
-
+		/*
+		 * this method is in charge of deleting a student, and after having done that sees if it 
+		 * is still in the DB to check if the deletion was done properly
+		 */
 		studentRepository.deleteById(fCode);
 		return studentRepository.existsById(fCode);
 	}
 
 	@Override
 	public List<Student> findStudentsByAcademy(Academy academy) {
-		
+		/*
+		 * this method will be used in every listing method and in the total and annual report
+		 */
 		List<Student> students = studentRepository.findByAcademy(academy);		
 		return students;
 		
@@ -68,7 +74,9 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Override
 	public Student findStudentById(String fCode) {
-		
+		/*
+		 * this method is used to search for a student by his PK
+		 */
 		return studentRepository.findById(fCode).get();
 	}
 }

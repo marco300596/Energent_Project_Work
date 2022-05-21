@@ -18,7 +18,8 @@
 <title>HomePage</title>
 </head>
 <body background= "/Image/back.jpg">
-	<div class="btn-group-vertical-center gap-2 col-6 mx-auto"  style="margin-bottom: 10px; margin-top: 10px; background-color: #ffffff; overflow: auto;">
+	<div class="btn-group-vertical-center gap-2 col-6 mx-auto"  style="margin-bottom: 10px; margin-top: 10px; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto;">
 		<div class="text-center">
 		<p class="text-center" style="font-size: 40px">Welcome to the academy management app</p>
 		<div class="btn-group text-center">

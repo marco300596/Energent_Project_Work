@@ -14,7 +14,7 @@
 <footer style="background-color: #ffffff;">
 	<div class="card-footer text-muted">
 		<p class="text-center" style="font-size: 20px;">
-  		&copy; designed by: Antonio Manzo;  Jamir Ramos Atauje;  Casentini Marco;  Gianmarco Mazzola
+  		&copy; designed by: Antonio Manzo;  Jamir Ramos Atauje;  Casentini Marco  &  Gianmarco Mazzola
   		</p>
   	</div>
 </footer>

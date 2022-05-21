@@ -24,7 +24,8 @@
 	<body background= "/Image/back.jpg">
 	<div class="container" style= "margin-top: 10px">
 		<div class="form-group row">
-			<div class="container" style="float: left; margin-bottom: 20px; width: 40%; background-color: #ffffff">
+			<div class="container" style="float: left; margin-bottom: 20px; width: 40%; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto">
 				<p class="text-center" style="font-size: 40px;"> Student successfully removed</p>
 				<spring:url value="/academies/${academy.codeId}/students" var="okURL" />
 				<form:form modelAttribute="student" method="post" action="${okURL}" cssClass="form">

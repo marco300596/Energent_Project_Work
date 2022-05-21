@@ -8,7 +8,7 @@
 <head>
 <jsp:include page="Header.jsp" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Remove Student</title>
+<title>Remove Student Form</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="../../webjars/bootstrap/4.0.0/css/bootstrap.min.css"
 	rel="stylesheet" />
@@ -18,7 +18,8 @@
 <body background= "/Image/back.jpg">
 	<div class="container" style= "margin-top: 10px">
 	<div class="form-group row">
-	<div class="container" style="float: left; margin-bottom: 20px; width: 40%; background-color: #ffffff">
+	<div class="container" style="float: left; margin-bottom: 20px; width: 40%; background-color: rgba(0,0,0,.5);
+    color: #ffffff; overflow: auto">
 		<spring:url value="/academies/${academy.codeId}/students/remove/confirm" var="removeURL" />
 		<h2>Remove Student</h2>
 		<!--ModelAttribute=n collegamento tra model e view     -->
@@ -27,19 +28,19 @@
 			<div class="form-group">
 				<label>Fiscal Code</label>
 				
-				<form:input path="fCode" cssClass="form-control" id="fCode" readonly="true" />
+				<form:input path="fCode" style="background-color: transparent; color:white;" cssClass="form-control" id="fCode" readonly="true" />
 			</div>
 			<div class="form-group">
 				<label>Firstname</label>
-				<form:input path="firstname" cssClass="form-control" id="firstname" readonly="true"/>
+				<form:input path="firstname" style="background-color: transparent; color:white;" cssClass="form-control" id="firstname" readonly="true"/>
 			</div>
 			<div class="form-group">
 				<label>Lastname</label>
-				<form:input path="lastname" cssClass="form-control" id="lastname" readonly="true" />
+				<form:input path="lastname" style="background-color: transparent; color:white;" cssClass="form-control" id="lastname" readonly="true" />
 			</div>
 			<div class="form-group">
 				<label>Age</label>
-				<form:input path="age" cssClass="form-control" id="age" readonly="true" />
+				<form:input path="age" style="background-color: transparent; color:white;" cssClass="form-control" id="age" readonly="true" />
 			</div>
 			<button type="submit" class="btn btn-danger" style="display: block; margin: 0 auto; margin-bottom: 10px; margin-top: 10px; width: 200px;">
 			<img src ="/Image/confirmation.png" height="25" width="30" style="margin-right: 10px"/>Confirm Removing Student</button>
