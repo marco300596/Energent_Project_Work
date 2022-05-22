@@ -41,11 +41,11 @@
 			</div>
 			<div class="form-group">
 				<label>Firstname:</label>
-				<form:input path="firstname" style="background-color: transparent; color:white;" cssClass="form-control" id="firstname" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a name made of only letters and spaces')"/>
+				<form:input path="firstname" style="background-color: transparent; color:white; text-transform: capitalize;" cssClass="form-control" id="firstname" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a name made of only letters and spaces')"/>
 			</div>
 			<div class="form-group">
 				<label>Lastname</label>
-				<form:input path="lastname" style="background-color: transparent; color:white;" cssClass="form-control" id="lastname" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a lastname made of only letters and spaces')"/>
+				<form:input path="lastname" style="background-color: transparent; color:white; text-transform: capitalize;" cssClass="form-control" id="lastname" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a lastname made of only letters and spaces')"/>
 			</div>
 			<div class="form-group">
 				<label>Age:</label>

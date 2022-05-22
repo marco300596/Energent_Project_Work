@@ -50,13 +50,13 @@
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Academy Title</label>
-					<form:input path="title" style="background-color: transparent; color:white;" cssClass="form-control" id="title" required="required" pattern="[a-zA-Z0-9#@~\s]+" oninvalid="alert('Please insert a title made of only letters, numbers, #, @, ~, or spaces')"/>
+					<form:input path="title" style="background-color: transparent; color:white; text-transform: capitalize;" cssClass="form-control" id="title" required="required" pattern="[a-zA-Z0-9#@~\s]+" oninvalid="alert('Please insert a title made of only letters, numbers, #, @, ~, or spaces')"/>
 				</div>
 			</div>
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Location</label>
-					<form:input path="location" style="background-color: transparent; color:white;" cssClass="form-control" id="location" required="required" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a location made of only letters and spaces')"/>
+					<form:input path="location" style="background-color: transparent; color:white; text-transform: capitalize;" cssClass="form-control" id="location" required="required" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a location made of only letters and spaces')"/>
 				</div>
 			</div>
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px; position: relative">

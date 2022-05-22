@@ -44,11 +44,11 @@
 			</div>
 			<div class="form-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px">
 				<label>Academy Title</label>
-				<form:input path="title" style="background-color: transparent; color:white;" cssClass="form-control" id="title" pattern="[a-zA-Z0-9#@~\s]+" oninvalid="alert('Please insert a title made of only letters, numbers, #, @, ~ and spaces')"/>
+				<form:input path="title" style="background-color: transparent; color:white; text-transform: capitalize;" cssClass="form-control" id="title" pattern="[a-zA-Z0-9#@~\s]+" oninvalid="alert('Please insert a title made of only letters, numbers, #, @, ~ and spaces')"/>
 			</div>
 			<div class="form-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px">
 				<label>Location</label>
-				<form:input path="location" style="background-color: transparent; color:white;" cssClass="form-control" id="location" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a location made of only letters and spaces')"/>
+				<form:input path="location" style="background-color: transparent; color:white; text-transform: capitalize;" cssClass="form-control" id="location" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a location made of only letters and spaces')"/>
 			</div>
 			<div class="form-group" style="margin-top: 10px; margin-left: 10px; margin-right: 10px">
 			<label>Starting Date</label>
