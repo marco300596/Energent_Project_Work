@@ -1,6 +1,5 @@
 package com.energent.controller;
 
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -167,10 +166,12 @@ public class AcademyController {
 		 * and if the request came from the HP see for a requested filter.
 		 */
 		List<Academy> academies = new ArrayList<>();
+		List<Student> students = new ArrayList<>();
 		if(mav.getViewName() == "/HomePageAcademy") {	//this part is in case we come from an update page
 			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 			mav.setViewName("/academies");
-			//filtering by a message bean in its attribute (this is a mirror of the academy class)
+			// filtering by a message bean in its attribute (this is a mirror of the academy class)
+			// the academy can be filtered by: codeId, name, location, starting date, ending date, both, or by a student lastname
 			if(message.getCode() != "" && message.getCode()!=null) {
 				
 				academies = new ArrayList<>();
@@ -204,29 +205,46 @@ public class AcademyController {
 				return mav;
 			}
 			if((message.getEdate()!=null) && (message.getSdate()!=null)) {
-			
-					
-				academies = academyService.findAcademiesByStartAndEndDate(message.getSdate().toLocalDate().format(formatter), message.getEdate().toLocalDate().format(formatter));
-				message.setSdate(null);
-				message.setEdate(null);
-				if(!academies.isEmpty())
-					mav.addObject("academies",academies);
-				else 
-					mav.setViewName("/NoAcademy");
-				return mav;
-			}if(message.getEdate()!=null) {
 				
-				academies = academyService.findAcademiesByEndDate(message.getEdate().toLocalDate().format(formatter));
-				message.setEdate(null);
-				if(!academies.isEmpty())
-					mav.addObject("academies",academies);
-				else 
-					mav.setViewName("/NoAcademy");
-				return mav;
+				if(!(message.getEdate().toLocalDate().format(formatter).equals("01/01/2022"))&&((message.getSdate().toLocalDate().format(formatter).equals("01/01/2022")))) {
+					academies = academyService.findAcademiesByStartAndEndDate(message.getSdate().toLocalDate().format(formatter), message.getEdate().toLocalDate().format(formatter));
+					message.setSdate(null);
+					message.setEdate(null);
+					if(!academies.isEmpty())
+						mav.addObject("academies",academies);
+					else 
+						mav.setViewName("/NoAcademy");
+					return mav;
+				}
+			}if(message.getEdate()!=null) {
+
+				if(!message.getEdate().toLocalDate().format(formatter).equals("01/01/2022")){
+					academies = academyService.findAcademiesByEndDate(message.getEdate().toLocalDate().format(formatter));
+					message.setEdate(null);
+					if(!academies.isEmpty())
+						mav.addObject("academies",academies);
+					else 
+						mav.setViewName("/NoAcademy");
+					return mav;
+				}
 			}if(message.getSdate()!=null) {
 				
-				academies = academyService.findAcademiesByStartDate(message.getSdate().toLocalDate().format(formatter));
-				message.setSdate(null);
+				if(!message.getSdate().toLocalDate().format(formatter).equals("01/01/2022")) {
+					academies = academyService.findAcademiesByStartDate(message.getSdate().toLocalDate().format(formatter));
+					message.setSdate(null);
+					if(!academies.isEmpty())
+						mav.addObject("academies",academies);
+					else 
+						mav.setViewName("/NoAcademy");
+					return mav;
+				}
+			}if(message.getStudent() != "" && message.getStudent()!=null) {
+
+				students = studentService.findStudentsByLastname(message.getStudent());
+				for(Student student: students) {
+
+					academies.add(academyService.findAcademybyId(student.getAcademy().getCodeId(), false));
+				}
 				if(!academies.isEmpty())
 					mav.addObject("academies",academies);
 				else 

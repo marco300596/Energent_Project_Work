@@ -40,15 +40,15 @@
 			</div>
 		  	<div class="col-sm-10" style="margin-top: 10px;">
 				<label>Academy Code</label>
-				<form:input path="code" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" style="background-color: transparent; color:white;" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+				<form:input path="code" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" style="background-color: transparent; color:white;" oninvalid="alert('Please insert a code made of only letters and numbers')"/>
 			</div>
 			<div class="col-sm-10" style="margin-top: 10px">
 				<label>Academy Name</label>
-				<form:input path="name" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9\s]+" style="background-color: transparent; color:white;" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+				<form:input path="name" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9#@~\s]+" style="background-color: transparent; color:white;" oninvalid="alert('Please insert a title made of only letters, numbers, #, @, ~ and spaces')"/>
 			</div>
 			<div class="col-sm-10" style="margin-top: 10px">
 				<label>Academy Location</label>
-				<form:input path="location" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9\s]+" style="background-color: transparent; color:white;" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+				<form:input path="location" cssClass="form-control" id="codeId" pattern="[a-zA-Z\s]+" style="background-color: transparent; color:white;" oninvalid="alert('Please insert a location made of only letters and spaces')"/>
 			</div>
 			<div class="col-sm-10" style="margin-top: 10px">
 				<label>Starting date</label>
@@ -57,6 +57,10 @@
 			<div class="col-sm-10" style="margin-top: 10px">
 				<label>Ending Date</label>
 				<form:input path="edate" type="date" value="2022-01-01" style="background-color: transparent; color:white;" cssClass="form-control" id="codeId"/>
+			</div>
+			<div class="col-sm-10" style="margin-top: 10px">
+				<label>Student's LastName</label>
+				<form:input path="student" type="text" pattern="[a-zA-Z\s]+" style="background-color: transparent; color:white;" cssClass="form-control" id="codeId" oninvalid="alert('Please insert a lastname made of only letters and spaces')"/>
 			</div>
 			<button type="submit" class="btn btn-success" data-bs-toggle="button" autocomplete="off" style="display: block; margin: 0 auto; margin-top: 10px; width: 210px; margin-left: 15px">
 			<img src ="/Image/ricerca.png" height="15" width="15" style="margin-right: 5px"/>Go to the filtered Academy's list</button>

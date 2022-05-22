@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <jsp:include page="Header.jsp" />
@@ -23,7 +23,7 @@
 <script src="../../webjars/jquery/3.0.0/js/jquery.min.js"></script>
 </head>
 <body background= "/Image/back.jpg">
-	<div class="container" style="margin-bottom: 10px; margin-top: 10px;">
+	<div class="container" style="margin-bottom: 10px; margin-top: 10px">
 	<!--  -->
 	<div class="form-group row">
 	<div class="container" style="float: left; width: 40%; background-color: rgba(0,0,0,.5);
@@ -44,28 +44,28 @@
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Academy Code</label>
-					<form:input path="codeId" style="background-color: transparent; color:white;" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters and numbers')"/>
+					<form:input path="codeId" style="background-color: transparent; color:white;" cssClass="form-control" id="codeId" pattern="[a-zA-Z0-9]+" oninvalid="alert('Please insert a code made of only letters and numbers')"/>
 				</div>
 			</div>
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Academy Title</label>
-					<form:input path="title" style="background-color: transparent; color:white;" cssClass="form-control" id="title" required="required" pattern="[a-zA-Z0-9#@~\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a code made of only letters, numbers, #, @, ~, or spaces')"/>
+					<form:input path="title" style="background-color: transparent; color:white;" cssClass="form-control" id="title" required="required" pattern="[a-zA-Z0-9#@~\s]+" oninvalid="alert('Please insert a title made of only letters, numbers, #, @, ~, or spaces')"/>
 				</div>
 			</div>
 			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
 				<div class="col-sm-10">
 					<label>Location</label>
-					<form:input path="location" style="background-color: transparent; color:white;" cssClass="form-control" id="location" required="required" pattern="[a-zA-Z0-9\s]+" oninvalid="setCustomValidity(this.willValidate?'':'Please insert a location made of only letters and spaces')"/>
+					<form:input path="location" style="background-color: transparent; color:white;" cssClass="form-control" id="location" required="required" pattern="[a-zA-Z\s]+" oninvalid="alert('Please insert a location made of only letters and spaces')"/>
 				</div>
 			</div>
-			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
+			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px; position: relative">
 				<div class="col-sm-4">
 				<label>Starting Date</label>
 	            <div class="form-row align-items-center">
 					<div class="col-sm-10">
-					    <div class="input-group date" id="datepicker1">
-		                    <form:input path="startDate" style="background-color: transparent; color:white;" type="text" class="form-control" id="startDate" required="required"/>
+					    <div class="input-group date" id="datepicker1" style="position:relative">
+		                    <form:input path="startDate" style="background-color: transparent; color:white;" type="text" class="form-control" id="startDate" required="required" />
 		                    <span class="input-group-append">
 		                        <span class="input-group-text bg-transparent d-block">
 		                            <i class="fa fa-calendar" style="color: white"></i>
@@ -76,7 +76,7 @@
 	            </div>
             	</div>
             </div>
-			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px;">
+			<div class="form-row align-items-center" style="margin-top: 10px; margin-left: 10px; position: relative">
 				<div class="col-sm-4">
 				<label>Ending Date</label>
 	            <div class="form-row align-items-center">
@@ -92,7 +92,7 @@
 	                </div>
 	        	</div>
 	        	</div>
-	        	</div>
+	        </div>
 			<button type="submit" class="btn btn-success" style="margin-top: 10px; margin-left: 15px; margin-bottom: 10px">
 			<img src ="/Image/add.png" height="25" width="30" style="margin-right: 10px"/>Add New Academy</button>
 		</form:form>

@@ -55,7 +55,7 @@
 </nav>
 </header>
 <body>
-<div class="container" style="margin-bottom: 70px">
+<div class="container" style="padding-bottom: 70px">
 </div>
 </body>
 </html>

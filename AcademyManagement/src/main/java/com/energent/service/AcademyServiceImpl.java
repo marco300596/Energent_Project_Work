@@ -80,7 +80,7 @@ public class AcademyServiceImpl implements AcademyService {
 		Academy academy = new Academy();
 		if (academyRepository.existsById(codeId)) 
 			academy = academyRepository.findById(codeId).get();
-			if(flag = true)
+			if(flag == true)
 				academy.setStudents(studentService.findStudentsByAcademy(academy));
 		return academy;
 	}
