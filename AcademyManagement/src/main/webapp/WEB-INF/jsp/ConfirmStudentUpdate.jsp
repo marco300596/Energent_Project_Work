@@ -51,7 +51,7 @@
 			<div class="form-group">
 				<form:form modelAttribute="academy" method="post" action="${okURL}"	cssClass="form">
 				<label>Academy</label>
-				<form:input path="codeId" cssClass="form-control" id="academy" readonly="true"/>
+				<form:input path="codeId" cssClass="form-control" style="background-color: transparent; color:white;" id="academy" readonly="true"/>
 				
 			</div>
 			<button type="submit" class="btn btn-primary">

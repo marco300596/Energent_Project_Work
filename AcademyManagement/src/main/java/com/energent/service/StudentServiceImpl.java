@@ -2,6 +2,8 @@ package com.energent.service;
 
 import java.util.List;
 
+import javax.servlet.jsp.tagext.TryCatchFinally;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,7 +43,9 @@ public class StudentServiceImpl implements StudentService {
 		 */
 		student.setAcademy(academy);
 		studentRepository.save(student);
-		return (student.equals(findStudentById(student.getfCode())));
+		Student dummy = findStudentById(student.getfCode());
+		return (student.getfCode()==dummy.getfCode() && student.getFirstname()==dummy.getFirstname() && student.getLastname()==dummy.getLastname()
+				&& student.getAge()==dummy.getAge() && student.getAcademy().getCodeId()==dummy.getAcademy().getCodeId());
   
 	
 }

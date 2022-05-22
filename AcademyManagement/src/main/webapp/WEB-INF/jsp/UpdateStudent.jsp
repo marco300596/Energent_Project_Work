@@ -49,7 +49,7 @@
 			</div>
 			<div class="form-group">
 				<label>Age:</label>
-				<form:input path="age" style="background-color: transparent; color:white;" cssClass="form-control" id="age" min="18" max="70" pattern="[0-9]+" oninvalid="alert('Please insert an age made of only positive numbers ranging from 18 to 70')"/>
+				<form:input path="age" type="number" style="background-color: transparent; color:white;" cssClass="form-control" id="age" min="18" max="70" pattern="[0-9]+" oninvalid="alert('Please insert an age made of only positive numbers ranging from 18 to 70')"/>
 			</div>
 			<button type="submit" class="btn btn-info" data-bs-toggle="button" autocomplete="off" style="display: block; margin: 0 auto; margin-bottom: 10px; width: 200px;">
 			<img src ="/Image/confirmation.png" height="25" width="30" style="margin-right: 10px"/>Update Student</button>
